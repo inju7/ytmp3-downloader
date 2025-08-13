@@ -1,13 +1,11 @@
 import HeroSection from "@/components/HeroSection";
-import HowItWorks from "@/components/HowItWorks";
-import Features from "@/components/Features";
+import ColorPaletteSwitcher from "@/components/ColorPaletteSwitcher";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="h-screen overflow-hidden">
+      <ColorPaletteSwitcher />
       <HeroSection />
-      <HowItWorks />
-      <Features />
     </div>
   );
 };

@@ -15,9 +15,13 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-gradient-secondary flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen bg-gradient-secondary flex items-center justify-center overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-hero"></div>
+      
+      {/* Animated background orbs */}
+      <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/20 rounded-full blur-xl animate-pulse-gentle"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent/20 rounded-full blur-xl animate-pulse-gentle" style={{ animationDelay: '1s' }}></div>
       
       <div className="relative z-10 container max-w-4xl mx-auto px-6 text-center">
         {/* Hero icon */}
@@ -67,16 +71,16 @@ const HeroSection = () => {
           </div>
 
           {/* Features */}
-          <div className="flex flex-wrap justify-center gap-6 mt-8 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
+          <div className="flex flex-wrap justify-center gap-8 mt-8 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2 bg-card/50 px-4 py-2 rounded-full backdrop-blur-sm">
               <PlayCircle className="h-4 w-4 text-primary" />
               High Quality
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 bg-card/50 px-4 py-2 rounded-full backdrop-blur-sm">
               <Music className="h-4 w-4 text-primary" />
               Fast Conversion
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 bg-card/50 px-4 py-2 rounded-full backdrop-blur-sm">
               <Download className="h-4 w-4 text-primary" />
               Free Forever
             </div>

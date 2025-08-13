@@ -10,43 +10,142 @@ All colors MUST be HSL.
   :root {
     --background: 240 20% 98%;
     --foreground: 224 24% 18%;
-
     --card: 0 0% 100%;
     --card-foreground: 224 24% 18%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 224 24% 18%;
-
     --primary: 258 90% 66%;
     --primary-foreground: 0 0% 100%;
-
     --secondary: 220 14% 96%;
     --secondary-foreground: 224 24% 18%;
-
     --muted: 220 14% 96%;
     --muted-foreground: 215 20% 50%;
-
     --accent: 258 90% 66%;
     --accent-foreground: 0 0% 100%;
-
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-
     --border: 220 13% 91%;
     --input: 220 13% 91%;
     --ring: 258 90% 66%;
-
-    /* Custom gradient variables */
     --gradient-primary: linear-gradient(135deg, hsl(258 90% 66%), hsl(213 94% 68%));
     --gradient-secondary: linear-gradient(135deg, hsl(240 20% 98%), hsl(220 14% 96%));
     --gradient-hero: linear-gradient(135deg, hsl(258 90% 66% / 0.1), hsl(213 94% 68% / 0.1));
-    
-    /* Shadows */
     --shadow-elegant: 0 20px 40px -10px hsl(258 90% 66% / 0.15);
     --shadow-card: 0 10px 25px -5px hsl(220 13% 91% / 0.3);
-    
-    /* Animation */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Neon Cyber Theme */
+  .theme-neon {
+    --background: 210 100% 4%;
+    --foreground: 180 100% 90%;
+    --card: 210 100% 6%;
+    --card-foreground: 180 100% 90%;
+    --popover: 210 100% 6%;
+    --popover-foreground: 180 100% 90%;
+    --primary: 180 100% 50%;
+    --primary-foreground: 210 100% 4%;
+    --secondary: 210 100% 8%;
+    --secondary-foreground: 180 100% 90%;
+    --muted: 210 100% 8%;
+    --muted-foreground: 180 50% 70%;
+    --accent: 300 100% 50%;
+    --accent-foreground: 210 100% 4%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 100% 12%;
+    --input: 210 100% 12%;
+    --ring: 180 100% 50%;
+    --gradient-primary: linear-gradient(135deg, hsl(180 100% 50%), hsl(300 100% 50%));
+    --gradient-secondary: linear-gradient(135deg, hsl(210 100% 4%), hsl(210 100% 8%));
+    --gradient-hero: linear-gradient(135deg, hsl(180 100% 50% / 0.1), hsl(300 100% 50% / 0.1));
+    --shadow-elegant: 0 20px 40px -10px hsl(180 100% 50% / 0.3);
+    --shadow-card: 0 10px 25px -5px hsl(210 100% 12% / 0.5);
+  }
+
+  /* Sunset Vibes Theme */
+  .theme-sunset {
+    --background: 30 100% 96%;
+    --foreground: 15 95% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 15 95% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 15 95% 15%;
+    --primary: 340 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 100% 94%;
+    --secondary-foreground: 15 95% 15%;
+    --muted: 30 100% 94%;
+    --muted-foreground: 15 60% 40%;
+    --accent: 25 100% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 30 80% 88%;
+    --input: 30 80% 88%;
+    --ring: 340 100% 60%;
+    --gradient-primary: linear-gradient(135deg, hsl(340 100% 60%), hsl(25 100% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(30 100% 96%), hsl(30 100% 94%));
+    --gradient-hero: linear-gradient(135deg, hsl(340 100% 60% / 0.1), hsl(25 100% 55% / 0.1));
+    --shadow-elegant: 0 20px 40px -10px hsl(340 100% 60% / 0.2);
+    --shadow-card: 0 10px 25px -5px hsl(30 80% 88% / 0.4);
+  }
+
+  /* Ocean Depths Theme */
+  .theme-ocean {
+    --background: 200 100% 97%;
+    --foreground: 220 100% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 100% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 100% 15%;
+    --primary: 200 100% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 100% 95%;
+    --secondary-foreground: 220 100% 15%;
+    --muted: 200 100% 95%;
+    --muted-foreground: 220 60% 40%;
+    --accent: 170 100% 40%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 200 80% 90%;
+    --input: 200 80% 90%;
+    --ring: 200 100% 45%;
+    --gradient-primary: linear-gradient(135deg, hsl(200 100% 45%), hsl(170 100% 40%));
+    --gradient-secondary: linear-gradient(135deg, hsl(200 100% 97%), hsl(200 100% 95%));
+    --gradient-hero: linear-gradient(135deg, hsl(200 100% 45% / 0.1), hsl(170 100% 40% / 0.1));
+    --shadow-elegant: 0 20px 40px -10px hsl(200 100% 45% / 0.2);
+    --shadow-card: 0 10px 25px -5px hsl(200 80% 90% / 0.4);
+  }
+
+  /* Electric Lime Theme */
+  .theme-electric {
+    --background: 270 100% 8%;
+    --foreground: 120 100% 85%;
+    --card: 270 100% 10%;
+    --card-foreground: 120 100% 85%;
+    --popover: 270 100% 10%;
+    --popover-foreground: 120 100% 85%;
+    --primary: 120 100% 50%;
+    --primary-foreground: 270 100% 8%;
+    --secondary: 270 100% 12%;
+    --secondary-foreground: 120 100% 85%;
+    --muted: 270 100% 12%;
+    --muted-foreground: 120 60% 70%;
+    --accent: 60 100% 50%;
+    --accent-foreground: 270 100% 8%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 270 100% 15%;
+    --input: 270 100% 15%;
+    --ring: 120 100% 50%;
+    --gradient-primary: linear-gradient(135deg, hsl(120 100% 50%), hsl(60 100% 50%));
+    --gradient-secondary: linear-gradient(135deg, hsl(270 100% 8%), hsl(270 100% 12%));
+    --gradient-hero: linear-gradient(135deg, hsl(120 100% 50% / 0.1), hsl(60 100% 50% / 0.1));
+    --shadow-elegant: 0 20px 40px -10px hsl(120 100% 50% / 0.3);
+    --shadow-card: 0 10px 25px -5px hsl(270 100% 15% / 0.5);
+  }
 
     --radius: 0.5rem;
 
