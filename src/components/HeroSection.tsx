@@ -4,14 +4,36 @@ import { Input } from "@/components/ui/input";
 import { Download, Music, PlayCircle } from "lucide-react";
 import heroIcon from "@/assets/hero-icon.jpg";
 
+
+const API_URL = "http://192.168.0.221:5000"; // Change if backend runs elsewhere
+
 const HeroSection = () => {
   const [url, setUrl] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [filename, setFilename] = useState("");
 
-  const handleConvert = () => {
-    if (url) {
-      // Conversion logic would go here
-      console.log("Converting:", url);
+  const handleConvert = async () => {
+    if (!url) return;
+    setLoading(true);
+    setError("");
+    setFilename("");
+    try {
+      const response = await fetch(`${API_URL}/download`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        setFilename(data.filename);
+      } else {
+        setError(data.error || "Conversion failed");
+      }
+    } catch (err) {
+      setError("Network error");
     }
+    setLoading(false);
   };
 
   return (
@@ -63,12 +85,40 @@ const HeroSection = () => {
               variant="converter" 
               size="lg" 
               onClick={handleConvert}
-              className="h-14 px-8 text-lg min-w-[140px]"
+              className="h-14 px-8 text-lg min-w-[140px] flex items-center justify-center"
+              disabled={loading}
             >
-              <Download className="mr-2 h-5 w-5" />
-              Convert
+              {loading ? (
+                <span className="flex items-center justify-center">
+                  <svg className="animate-spin mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                  </svg>
+                  Converting...
+                </span>
+              ) : (
+                <>
+                  <Download className="mr-2 h-5 w-5" />
+                  Convert
+                </>
+              )}
             </Button>
           </div>
+          {error && <p className="text-red-500 mt-4">{error}</p>}
+          {filename && (
+            <a
+              href={`${API_URL}/file/${filename}`}
+              download
+              style={{ textDecoration: "none" }}
+            >
+              <Button
+                size = "lg"
+                className="h-12 px-6 text-lg min-w-[140px] mt-4 w-full md:w-auto bg-primary hover:bg-primary/80 transition-colors"
+              >
+                Download MP3
+              </Button>
+            </a>
+          )}
 
           {/* Features */}
           <div className="flex flex-wrap justify-center gap-8 mt-8 text-sm text-muted-foreground">
