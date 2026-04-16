@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # YouTube to Audio Vibe
 
 A full-stack web application that allows users to seamlessly download high-quality MP3 audio from YouTube videos. It features a modern, responsive user interface and a robust backend that tracks download progress in real-time.
@@ -33,6 +32,8 @@ A full-stack web application that allows users to seamlessly download high-quali
 - Able to download soundcloud songs (in best quality possible)
 - Multiple downloads at once (max 5 at a time, may look into the maximum threshold limit)
 
-=======
 
->>>>>>> 5eb398f246efdbfc4e7eb2b1c01cead52fa89c86
+**NOTE**
+
+Mainly created for personal use only, do not use for any commercial purposes.
+
