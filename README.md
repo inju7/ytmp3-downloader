@@ -1,73 +1,34 @@
-# Welcome to your Lovable project
+# YouTube to Audio Vibe
 
-## Project info
+A full-stack web application that allows users to seamlessly download high-quality MP3 audio from YouTube videos. It features a modern, responsive user interface and a robust backend that tracks download progress in real-time.
 
-**URL**: https://lovable.dev/projects/690fbe74-725c-4bd4-9682-60be6b59eb8f
+## 🚀 Features
+- **Fast Audio Extraction**: Converts YouTube videos to 192kbps MP3 audio streams.
+- **Real-Time Progress Tracking**: Live progress bar updates as your video is reliably downloaded and converted.
+- **Modern UI**: A sleek, accessible, and responsive user interface built with beautifully designed UI components.
+- **CORS Enabled**: The API is configured to easily handle cross-origin requests, keeping the frontend and backend decoupled.
 
-## How can I edit this code?
+## 💻 Tech Stack
+**Frontend:**
+- [React (Vite)](https://vitejs.dev/) - Fast, modern frontend framework
+- [TypeScript](https://www.typescriptlang.org/) - Static typing for robust code
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first styling
+- [shadcn-ui](https://ui.shadcn.com/) - Beautifully designed, accessible UI components
 
-There are several ways of editing your application.
+**Backend:**
+- [Python & Flask](https://flask.palletsprojects.com/) - Lightweight and powerful web API framework
+- [yt-dlp](https://github.com/yt-dlp/yt-dlp) - Fork of youtube-dl for reliable video fetching
+- **FFmpeg** - Used under the hood to extract and process the audio
 
-**Use Lovable**
+## ⚙️ How It Works
+1. The user inputs a YouTube URL into the frontend application.
+2. A `POST` request is fired to the Flask backend's `/download` endpoint.
+3. The server utilizes `yt-dlp` and `ffmpeg` to download the best audio format and process it into an MP3.
+4. The client polls the `/progress` endpoint to keep the user updated during the process.
+5. Once complete, the audio file is securely delivered back to the client as an attachment.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/690fbe74-725c-4bd4-9682-60be6b59eb8f) and start prompting.
+**FEATURES TO BE ADDED IN THE FUTURE**
+- Able to download spotify songs (in best quality possible)
+- Able to download soundcloud songs (in best quality possible)
+- Multiple downloads at once (max 5 at a time, may look into the maximum threshold limit)
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/690fbe74-725c-4bd4-9682-60be6b59eb8f) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
