@@ -5,7 +5,7 @@ import { Download, Music, PlayCircle } from "lucide-react";
 import heroIcon from "@/assets/hero-icon.jpg";
 
 
-const API_URL = "http://192.168.0.221:5000"; // Change if backend runs elsewhere
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 const HeroSection = () => {
   const [url, setUrl] = useState("");

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const API_URL = "http://localhost:5000"; // Adjust if backend runs on a different port
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 export default function YoutubeDownloader() {
   const [url, setUrl] = useState("");

@@ -2,6 +2,7 @@ progress = 0
 from flask import Flask, request, send_from_directory, jsonify
 from flask_cors import CORS
 import os
+import shutil
 import yt_dlp
 
 app = Flask(__name__)
@@ -13,6 +14,7 @@ os.makedirs(DOWNLOAD_FOLDER, exist_ok=True)
 def youtube_to_mp3(url, output_folder=DOWNLOAD_FOLDER):
     global progress
     progress = 0
+
     def hook(d):
         global progress
         if d['status'] == 'downloading':
@@ -22,6 +24,11 @@ def youtube_to_mp3(url, output_folder=DOWNLOAD_FOLDER):
                 progress = int(d['downloaded_bytes'] / d['total_bytes_estimate'] * 100)
         elif d['status'] == 'finished':
             progress = 100
+
+    ffmpeg_path = r'C:\ffmpeg\bin\ffmpeg.exe'
+    if not os.path.exists(ffmpeg_path):
+        ffmpeg_path = shutil.which('ffmpeg')
+
     ydl_opts = {
         'format': 'bestaudio/best',
         'postprocessors': [{
@@ -31,12 +38,12 @@ def youtube_to_mp3(url, output_folder=DOWNLOAD_FOLDER):
         }],
         'outtmpl': os.path.join(output_folder, '%(title)s.%(ext)s'),
         'quiet': False,
-        'http_headers': {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
-        },
-        'ffmpeg_location': r'C:\ffmpeg\bin\ffmpeg.exe',
         'progress_hooks': [hook],
     }
+
+    if ffmpeg_path:
+        ydl_opts['ffmpeg_location'] = ffmpeg_path
+
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
         filename = ydl.prepare_filename(info)
